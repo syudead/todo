@@ -13,6 +13,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { Actions } from './store'
+
 export default {
   name: 'TodoLista',
   created() {
@@ -27,14 +30,12 @@ export default {
   },
 
   computed: {
-    count() {
-      return this.$store.state.count
-    }
+    ...mapGetters(['count'])
   },
 
   methods: {
     increment() {
-      this.$store.commit('increment')
+      this.$store.dispatch(Actions.INCREMENT)
     }
   }
 }
