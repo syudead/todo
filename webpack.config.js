@@ -1,6 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+const htmlOptions = {
+  title: 'todo',
+  favicon: 'favicon.ico',
+  meta: {viewport: 'width=device-width, initial-scale=1'},
+}
+
 module.exports = {
   resolve: {
     alias: {
@@ -25,7 +31,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin(htmlOptions),
+    new HtmlWebpackPlugin(Object.assign({}, htmlOptions, {
+      filename: '404.html',
+    })),
     new VueLoaderPlugin(),
   ],
   devServer: {
