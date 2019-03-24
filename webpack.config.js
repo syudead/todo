@@ -8,6 +8,10 @@ const htmlOptions = {
 }
 
 module.exports = {
+  output: {
+    publicPath: '/',
+    filename: 'app-[contenthash].js',
+  },
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
