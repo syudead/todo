@@ -27,5 +27,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(),
     new VueLoaderPlugin(),
-  ]
+  ],
+  devServer: {
+    contentBase: ['static'],
+    historyApiFallback: true,
+  }
 }

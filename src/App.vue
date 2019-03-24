@@ -1,9 +1,14 @@
 <template>
   <div id="app">
     this is vue {{ name }}
+    <ul>
+      <li><router-link to="/">top</router-link></li>
+      <li><router-link to="/about">about</router-link></li>
+    </ul>
     <p>color message!</p>
     <button @click="increment()">click!</button>
     <p>count: {{ count }}</p>
+    <router-view />
   </div>
 </template>
 
