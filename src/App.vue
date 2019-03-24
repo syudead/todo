@@ -9,6 +9,11 @@
 
 <script>
 export default {
+  name: 'TodoLista',
+  created() {
+    console.log('created')
+  },
+
   data() {
     return {
       name: 'fuck',
@@ -18,13 +23,13 @@ export default {
 
   computed: {
     count() {
-      return this.counter
+      return this.$store.state.count
     }
   },
 
   methods: {
     increment() {
-      this.counter = this.counter + 1
+      this.$store.commit('increment')
     }
   }
 }

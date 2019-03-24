@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import App from './App'
+import store from './store'
 
 // ignore message
 Vue.config.productionTip = false
@@ -11,6 +12,6 @@ const el = body.insertBefore(document.createElement('div'), body.firstChild)
 
 new Vue({
   el,
-  components: { App },
-  template: '<App/>',
+  store,
+  render: h => h(App),
 })
