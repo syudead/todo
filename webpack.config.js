@@ -2,9 +2,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const htmlOptions = {
-  title: 'todo',
   favicon: 'favicon.ico',
   meta: {viewport: 'width=device-width, initial-scale=1'},
+  template: 'src/template.html',
 }
 
 module.exports = {

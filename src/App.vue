@@ -1,42 +1,53 @@
 <template>
-  <div id="app">
-    this is vue {{ name }}
-    <ul>
-      <li><router-link to="/">top</router-link></li>
-      <li><router-link to="/about">about</router-link></li>
-    </ul>
-    <p>color message!</p>
-    <button @click="increment()">click!</button>
-    <p>count: {{ count }}</p>
-    <router-view />
-  </div>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-side-icon @click="toggle = !toggle" />
+      <v-btn icon to="/"><v-icon v-text="'$vuetify.icons.logo'"></v-icon></v-btn>
+      <v-toolbar-title>Todo</v-toolbar-title>
+      <v-spacer />
+      <v-btn icon><v-icon>search</v-icon></v-btn>
+    </v-toolbar>
+
+    <v-navigation-drawer v-model="toggle" absolute>
+      <v-list>
+        <v-list-tile to="/">
+          <v-list-tile-content>
+            <v-list-tile-title>Top</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile to="/about">
+          <v-list-tile-content>
+            <v-list-tile-title>About</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-content>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-content>
+
+    <v-footer app></v-footer>
+  </v-app>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { Actions } from './store'
 
 export default {
-  name: 'TodoLista',
-  created() {
-    console.log('created')
-  },
-
   data() {
     return {
-      name: 'fuck',
-      counter: 0,
+      toggle: null,
     }
   },
 
   computed: {
-    ...mapGetters(['count'])
   },
 
   methods: {
-    increment() {
-      this.$store.dispatch(Actions.INCREMENT)
-    }
   }
 }
 </script>

@@ -1,13 +1,12 @@
 <template>
-  <div>
-    <h1>Top page</h1>
-    <p>{{ allTodoes }}</p>
-    <ul>
-      <li v-for="todo in allTodoes" :key="todo.id">
-        <router-link :to="`/i/${todo.id}`">{{ todo.title }}</router-link>
-      </li>
-    </ul>
-  </div>
+  <v-progress-circular indeterminate v-if="$apollo.loading" />
+  <v-list v-else>
+    <v-list-tile v-for="todo in allTodoes" :key="todo.id" :to="`/i/${todo.id}`">
+      <v-list-tile-title>
+        {{ todo.title }}
+      </v-list-tile-title>
+    </v-list-tile>
+  </v-list>
 </template>
 
 <script>

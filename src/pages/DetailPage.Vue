@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <h3>detail page</h3>
-    <div v-if="$apollo.loading">
-      loading...
-    </div>
-    <div v-else>
-      <p>{{ todo.title }}</p>
-      <textarea v-model="input"></textarea>
-      <button @click="update">更新</button>
-      <div v-html="compiledMarkdown"></div>
-    </div>
+  <v-progress-circular indeterminate v-if="$apollo.loading" />
+  <div v-else>
+    <h3 class="display-2">{{ todo.title }}</h3>
+    <v-layout row>
+      <v-flex md6 xs12>
+        <v-textarea v-model="input" solo/>
+        <button @click="update">更新</button>
+      </v-flex>
+      <v-flex md6 xs12>
+        <div v-html="compiledMarkdown"></div>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
