@@ -7,7 +7,7 @@
     <div v-else>
       <p>{{ todo.title }}</p>
       <textarea v-model="input"></textarea>
-      <button v-on:click="update">更新</button>
+      <button @click="update">更新</button>
       <div v-html="compiledMarkdown"></div>
     </div>
   </div>
