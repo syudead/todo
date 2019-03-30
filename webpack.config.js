@@ -12,6 +12,7 @@ module.exports = {
     publicPath: '/',
     filename: 'app-[contenthash].js',
   },
+  devtool: 'source-map',
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
