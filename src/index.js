@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import VueApollo from 'vue-apollo'
+import moment from 'moment'
 
 import App from './App'
 import store from './store'
@@ -31,6 +32,9 @@ Vue.use(Vuetify, {
     }
   }
 })
+
+// locale
+moment.locale('ja')
 
 // render
 const body = document.querySelector('body')
