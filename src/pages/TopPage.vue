@@ -1,11 +1,14 @@
 <template>
   <v-progress-circular indeterminate v-if="$apollo.loading" />
   <v-list v-else>
-    <v-list-tile v-for="todo in allTodoes" :key="todo.id" :to="`/i/${todo.id}`">
-      <v-list-tile-title>
-        {{ todo.title }}
-      </v-list-tile-title>
-    </v-list-tile>
+    <template v-for="(todo, index) in allTodoes">
+      <v-list-tile :to="`/i/${todo.id}`">
+        <v-list-tile-title>
+          {{ todo.title }}
+        </v-list-tile-title>
+      </v-list-tile>
+      <v-divider v-if="index + 1 < allTodoes.length" />
+    </template>
   </v-list>
 </template>
 

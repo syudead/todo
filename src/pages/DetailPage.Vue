@@ -1,8 +1,8 @@
 <template>
   <v-progress-circular indeterminate v-if="$apollo.loading" />
   <div v-else>
-    <h3 class="display-2">{{ todo.title }}</h3>
-    <v-layout row>
+    <v-subheader class="display-1">{{ todo.title }}</v-subheader>
+    <v-layout row wrap>
       <v-flex md6 xs12>
         <v-textarea v-model="input" solo/>
         <button @click="update">更新</button>
