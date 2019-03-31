@@ -5,7 +5,7 @@
     <v-layout row wrap>
       <v-flex md6 xs12>
         <v-textarea v-model="input" solo/>
-        <button @click="update">更新</button>
+        <v-btn @click="update">更新</v-btn>
       </v-flex>
       <v-flex md6 xs12>
         <div v-html="compiledMarkdown"></div>
