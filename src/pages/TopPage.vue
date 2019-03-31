@@ -1,5 +1,7 @@
 <template>
-  <v-progress-circular indeterminate v-if="$apollo.loading" />
+  <div class="text-xs-center" v-if="$apollo.loading">
+    <v-progress-circular indeterminate />
+  </div>
   <v-list v-else>
     <template v-for="(todo, index) in allTodoes">
       <v-list-tile :to="`/i/${todo.id}`">

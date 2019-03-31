@@ -1,5 +1,7 @@
 <template>
-  <v-progress-circular indeterminate v-if="$apollo.loading" />
+  <div class="text-xs-center" v-if="$apollo.loading">
+    <v-progress-circular indeterminate />
+  </div>
   <div v-else>
     <v-subheader class="display-1">{{ todo.title }}</v-subheader>
     <v-layout row wrap>
