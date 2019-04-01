@@ -5,13 +5,16 @@
   <div v-else>
     <v-list>
       <template v-for="(todo, index) in allTodoes">
-        <v-list-tile :to="`/i/${todo.id}`">
+        <v-list-tile :key="index" :to="`/i/${todo.id}`">
           <v-list-tile-content>
             <v-list-tile-title>{{ todo.title }}</v-list-tile-title>
             <v-list-tile-sub-title>{{ todo.updatedAt | moment }}</v-list-tile-sub-title>
           </v-list-tile-content>
+          <v-list-tile-action>
+            <v-btn icon @click.prevent="deleteTodo"><v-icon>delete</v-icon></v-btn>
+          </v-list-tile-action>
         </v-list-tile>
-        <v-divider v-if="index + 1 < allTodoes.length" />
+        <v-divider :key="`${index}-divide`" v-if="index + 1 < allTodoes.length" />
       </template>
     </v-list>
 
@@ -102,7 +105,11 @@ export default {
       this.dialog = ''
       this.title = ''
       this.alert = false
-    }
+    },
+
+    deleteTodo() {
+      console.log('delete!')
+    },
   },
 
   filters: {
